@@ -2557,14 +2557,14 @@
         enabledDates: false,
         readonly: false,
         icons: {
-            time: 'fa fa-clock-o',
+            time: 'fa fa-clock',
             date: 'fa fa-calendar',
             up: 'fa fa-chevron-up',
             down: 'fa fa-chevron-down',
             previous: 'fa fa-chevron-left',
             next: 'fa fa-chevron-right',
             today: 'fa fa-crosshairs',
-            clear: 'fa fa-trash-o',
+            clear: 'fa fa-trash',
             close: 'fa fa-times'
         },
         tooltips: {
