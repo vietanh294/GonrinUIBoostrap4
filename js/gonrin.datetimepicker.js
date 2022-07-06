@@ -2409,7 +2409,7 @@
                     // componentButton = $('<span class="input-group-append">').html('<span class="btn btn-outline-secondary input-group-addon"><i class="fa fa-calendar"></i></span>');
                     // custom button
                     let hmtl_button = `<span class="btn btn-outline-secondary input-group-addon" style="padding: 3px; display: flex; justify-content: center; align-items: center;"><mat-icon role="img" svgicon="icon-plus-2" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg class="text-dark" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 35 35"  preserveAspectRatio="xMidYMid meet" focusable="false">
-                    <use xlink:href="${static_url}/vendor/coreui-2022-icons/sprites/free.svg#cil-calendar"></use></svg></mat-icon></span>`;                        
+                    <use xlink:href="${static_url}/vendor/coreui-icons/sprites/free.svg#cil-calendar"></use></svg></mat-icon></span>`;                        
                     componentButton = $('<span class="input-group-append"> ').html(hmtl_button);
                     //
                     inputGroupSpan.append(componentButton);
