@@ -2422,7 +2422,7 @@
 
             var prevEl = element.prev('input');
             if ((prevEl.length == 0) || !($(prevEl[0]).hasClass('datetimepicker-input'))) {
-                prevEl = $('<input class="datetimepicker-input" type="text" readonly style="background-color:white">');
+                prevEl = $('<input class="datetimepicker-input" type="text" style="background-color:white">');
                 var clazzs = element.attr("class");
             	if(!!clazzs){
             		var classList = clazzs.split(' ');
