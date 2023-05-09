@@ -2369,9 +2369,9 @@
             }
         };
         picker.getValue = function () {
-        	/*if(!!date){
-        		return date.clone().toDate();
-        	}
+            /*if(!!date){
+                return date.clone().toDate();
+            }
             return null;*/
             if (!!date) {
                 if (options.parseOutputDate === undefined) {
@@ -2390,7 +2390,7 @@
         if (element.is('input')) {
             input = element;
             //gonrin inject input element
-            if (!options.disabledComponentButton){
+            if (!options.disabledComponentButton) {
                 var inputGroupSpan;
 
                 var parentEl = element.parent();
@@ -2408,15 +2408,27 @@
                 if ((componentButton.length == 0) || !($(componentButton[0]).hasClass('input-group-append'))) {
                     // componentButton = $('<span class="input-group-append">').html('<span class="btn btn-outline-secondary input-group-addon"><i class="fa fa-calendar"></i></span>');
                     // custom button
-                    let hmtl_button = `<span class="btn btn-outline-secondary input-group-addon" style="padding: 3px; display: flex; justify-content: center; align-items: center;"><mat-icon role="img" svgicon="icon-plus-2" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg class="text-dark" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 35 35"  preserveAspectRatio="xMidYMid meet" focusable="false">
-                    <use xlink:href="${static_url}/vendor/coreui-icons/sprites/free.svg#cil-calendar"></use></svg></mat-icon></span>`;                        
+                    // let hmtl_button = `<span class="btn btn-outline-secondary input-group-addon" style="padding: 3px; display: flex; justify-content: center; align-items: center;"><mat-icon role="img" svgicon="icon-plus-2" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg class="text-dark" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 35 35"  preserveAspectRatio="xMidYMid meet" focusable="false">
+                    // <use xlink:href="${static_url}/vendor/coreui-icons/sprites/free.svg#cil-calendar"></use></svg></mat-icon></span>`;                        
+                    let hmtl_button = `<span class="btn btn-outline-secondary input-group-addon" style="padding: 3px; display: flex; justify-content: center; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30">
+                            <g fill="#134563">
+                                <path
+                                    d="M49.6 54H14.4C12 54 10 52 10 49.6V17.3c0-2.4 1.6-4.4 3.7-4.4h2.2v2.9h-2.2c-.3 0-.7.6-.7 1.5v32.3c0 .8.7 1.5 1.5 1.5h35.2c.8 0 1.5-.7 1.5-1.5V17.3c0-.9-.5-1.5-.7-1.5h-2.2v-2.9h2.2c2 0 3.7 2 3.7 4.4v32.3C54 52 52 54 49.6 54">
+                                </path>
+                                <path
+                                    d="M20.3 18.8c-.8 0-1.5-.7-1.5-1.5v-5.9c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v5.9c-.1.8-.7 1.5-1.5 1.5m23.4 0c-.8 0-1.5-.7-1.5-1.5v-5.9c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v5.9c0 .8-.7 1.5-1.5 1.5M24.7 12.9h14.6v3H24.7zM12.9 21.7h38.2v3H12.9zM45.2 27.6h2.9v2.9h-2.9zM39.3 27.6h3v2.9h-3zM33.5 27.6h2.9v2.9h-2.9zM27.6 27.6h2.9v2.9h-2.9zM21.7 27.6h3v2.9h-3zM45.2 33.5h2.9v2.9h-2.9zM39.3 33.5h3v2.9h-3zM33.5 33.5h2.9v2.9h-2.9zM27.6 33.5h2.9v2.9h-2.9zM21.7 33.5h3v2.9h-3zM15.9 33.5h2.9v2.9h-2.9zM45.2 39.3h2.9v3h-2.9zM39.3 39.3h3v3h-3zM33.5 39.3h2.9v3h-2.9zM27.6 39.3h2.9v3h-2.9zM21.7 39.3h3v3h-3zM15.9 39.3h2.9v3h-2.9zM39.3 45.2h3v2.9h-3zM33.5 45.2h2.9v2.9h-2.9zM27.6 45.2h2.9v2.9h-2.9zM21.7 45.2h3v2.9h-3zM15.9 45.2h2.9v2.9h-2.9z">
+                                </path>
+                            </g>
+                        </svg>
+                    </span>`;                   
                     componentButton = $('<span class="input-group-append"> ').html(hmtl_button);
                     //
                     inputGroupSpan.append(componentButton);
                 }
 
                 component = componentButton;
-            }else{
+            } else {
                 component = null;
             }
 
@@ -2424,19 +2436,19 @@
             if ((prevEl.length == 0) || !($(prevEl[0]).hasClass('datetimepicker-input'))) {
                 prevEl = $('<input class="datetimepicker-input" type="text" style="background-color:white">');
                 var clazzs = element.attr("class");
-            	if(!!clazzs){
-            		var classList = clazzs.split(' ');
-                	$.each(classList, function(idx, clz){
-                		prevEl.addClass(clz);
-                	});
-            	}
+                if (!!clazzs) {
+                    var classList = clazzs.split(' ');
+                    $.each(classList, function (idx, clz) {
+                        prevEl.addClass(clz);
+                    });
+                }
                 element.before(prevEl);
             }
             textElement = prevEl;
-            if( !options.hasOwnProperty("cssClass") ){
-            	textElement.addClass("form-control");
-            }else if (options.hasOwnProperty("cssClass") && (options["cssClass"] !== false)){
-            	textElement.addClass(options.cssClass);
+            if (!options.hasOwnProperty("cssClass")) {
+                textElement.addClass("form-control");
+            } else if (options.hasOwnProperty("cssClass") && (options["cssClass"] !== false)) {
+                textElement.addClass(options.cssClass);
             }
             element.css("display", "none");
         } else {
