@@ -25,8 +25,8 @@
 		groupElement = false,
 		unset = true,
         input,
-	menuTemplate = '<ul class="dropdown-menu" style="overflow-y: auto; width: 100%;"></ul>',
-        itemTemplate =  '<li class="dropdown-item"><a href="javascript:void(0)" style="text-decoration: none;"></a></li>',
+        menuTemplate = '<ul class="dropdown-menu" style="overflow-y:scroll; width: 100%;"></ul>',
+        itemTemplate =  '<li class="dropdown-item"><a href="javascript:void(0)"></a></li>',
         component = false,
         helpmsg = false,
         widget = false,
@@ -707,6 +707,12 @@
         	if(groupElement){
         		groupElement.show();
         	}
+        },
+        setDataSource = function(dataSource){
+        	if(!!dataSource){
+        		options.dataSource = dataSource;
+        		setupWidget();
+        	}
         }
         ;
 
@@ -744,6 +750,7 @@
         //grobject.getIndex = getIndex;
         grobject.validate = validate;
         grobject.setState = setState;
+        grobject.setDataSource = setDataSource;
         
         
         grobject.disable = function () {
@@ -781,6 +788,9 @@
             }
             if (textElement){
             	textElement.prop('readonly', true);
+            }
+            if (input){
+            	input.prop('readonly', true);
             }
             return grobject;
         };
