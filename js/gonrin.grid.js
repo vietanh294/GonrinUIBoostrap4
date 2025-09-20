@@ -976,13 +976,22 @@
         			
         			//end filter
         			//var url = collection.url + "?page=" + page + "&results_per_page=" + pageSize + (query? "&q=" + JSON.stringify(query): "");
-        			var url = collection.url;
-        			if(options.paginationMode === "server"){
-        				url = url + "?page=" + page + "&results_per_page=" + pageSize + (query? "&q=" + JSON.stringify(query): "");
-        			}else{
-        				url = url + (query? "?q=" + JSON.stringify(query): "");
-        			}
-        			
+					var url = collection.url;
+					var extra_params = options.extra_params || {};
+					console.log("options.paginationMode=====================", options.paginationMode);
+					if (options.paginationMode === "server") {
+						let extra_params_string = '';
+						for (const key in extra_params) {
+							if (Object.hasOwnProperty.call(extra_params, key)) {
+								const element = extra_params[key];
+								extra_params_string = extra_params_string + '&' + key + '=' + element;
+							}
+						}
+						url = url + "?page=" + page + "&results_per_page=" + pageSize + extra_params_string + (query ? "&q=" + JSON.stringify(query) : "");
+					} else {
+						url = url + (query ? "?q=" + JSON.stringify(query) : "");
+					}
+
         			collection.fetch({
         				url: url,
                         success: function (objs) {
@@ -1256,8 +1265,9 @@
         grobject.getAllOptions = function() {
             return options;
         };
-        
-        grobject.filter = function(query){
+
+		grobject.filter = function (query, extra_params) {
+			options.extra_params = extra_params;
         	options.filters = query;
         	options.pagination.page = 1;
         	boundData();
